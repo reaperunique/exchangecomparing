@@ -1,6 +1,11 @@
 {
-  "name": "polymer-starter-kit",
-  "license": "BSD-3-Clause",
+  "name": "exchangeComparing",
+  "flat": true,
+  "version": "0.0.0",
+  "main": "index.js",
+  "author": "Vincent Peerlinck",
+  "license": "MIT",
+  "private": true,
   "devDependencies": {
     "eslint": "^3.19.0",
     "eslint-config-google": "^0.7.0",
@@ -11,5 +16,22 @@
     "lint:javascript": "eslint . --ext js,html --ignore-path .gitignore",
     "test": "polymer test",
     "test:integration": "polymer build # test that psk builds without error with the CLI"
+  },
+  "dependencies": {
+    "@polymer/polymer": "^3.0.0-pre.1",
+    "@webcomponents/webcomponentsjs": "^1.0.22",
+    "polymer-cli": "^1.5.7",
+    "@polymer/app-layout": "^0.10.6-pre.1",
+    "@polymer/app-route": "^0.9.3-pre.1",
+    "@polymer/iron-flex-layout": "^0.0.3",
+    "@polymer/iron-icons": "^0.0.3",
+    "@polymer/iron-iconset-svg": "^0.0.3",
+    "@polymer/iron-pages": "^0.0.3",
+    "@polymer/iron-selector": "^0.0.3",
+    "@polymer/paper-icon-button": "^0.0.3",
+    "@polymer/paper-styles": "^0.0.3"
+  },
+  "resolutions": {
+    "@webcomponents/webcomponentsjs": "1.0.22"
   }
 }

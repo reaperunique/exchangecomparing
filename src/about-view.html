@@ -1,0 +1,35 @@
+<link rel="import" href="../bower_components/polymer/polymer-element.html">
+<link rel="import" href="../bower_components/paper-styles/paper-styles.html">
+<link rel="import" href="../bower_components/iron-flex-layout/iron-flex-layout-classes.html">
+<link rel="import" href="shared-styles.html">
+
+<dom-module id="about-view">
+  <template>
+    <style include="shared-styles">
+      :host {
+        display: block;
+
+        padding: 10px;
+      }
+    </style>
+    <style is="custom-style" include="iron-flex iron-flex-alignment iron-flex-factors"></style>
+
+    <div class="layout horizontal">
+        <div class="flex">
+          <h1>About us</h1>
+
+          <h2>Our mission</h2>
+          <p>Lorem ipsum dolor sit amet, per in nusquam nominavi periculis, sit elit oportere ea.Lorem ipsum dolor sit amet, per in nusquam nominavi periculis, sit elit oportere ea.Cu mei vide viris gloriatur, at populo eripuit sit.</p>
+
+          <h2>Our Vision</h2>
+          <p>Lorem ipsum dolor sit amet, per in nusquam nominavi periculis, sit elit oportere ea.Lorem ipsum dolor sit amet, per in nusquam nominavi periculis, sit elit oportere ea.Cu mei vide viris gloriatur, at populo eripuit sit.</p>
+        </div>
+    </div>
+  </template>
+  <script>
+    class AboutView extends Polymer.Element {
+      static get is() { return 'about-view'; }
+    }
+    window.customElements.define(AboutView.is, AboutView);
+  </script>
+</dom-module>

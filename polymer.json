@@ -3,9 +3,8 @@
   "shell": "src/my-app.html",
   "fragments": [
     "src/main-view.html",
-    "src/my-view2.html",
-    "src/my-view3.html",
-    "src/my-view404.html"
+    "src/about-view.html",
+    "src/view404.html"
   ],
   "sources": [
     "src/**/*",
@@ -13,7 +12,7 @@
   ],
   "extraDependencies": [
     "manifest.json",
-    "bower_components/webcomponentsjs/*.js"
+    "node_modules/@webcomponents/webcomponentsjs/*.js"
   ],
   "lint": {
     "rules": ["polymer-2"]

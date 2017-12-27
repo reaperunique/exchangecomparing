@@ -1,39 +1,170 @@
-<!--
-@license
-Copyright (c) 2016 The Polymer Project Authors. All rights reserved.
-This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt
-The complete set of authors may be found at http://polymer.github.io/AUTHORS.txt
-The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt
-Code distributed by Google as part of the polymer project is also
-subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
--->
-
 <link rel="import" href="../bower_components/polymer/polymer-element.html">
+<link rel="import" href="../bower_components/paper-styles/paper-styles.html">
+<link rel="import" href="../bower_components/iron-flex-layout/iron-flex-layout-classes.html">
+<link rel="import" href="../bower_components/iron-icon/iron-icon.html">
+
+<link rel="import" href="my-ga.html">
 <link rel="import" href="shared-styles.html">
 
 <dom-module id="main-view">
   <template>
     <style include="shared-styles">
-      :host {
-        display: block;
-
-        padding: 10px;
+      .exchange-card {        
+        background-color: #000;
+        color: #000;
+        height: 666px;
+        position: relative;
+        box-shadow: inset 2px 1px 5px 0px #000;
       }
+        .exchange-card.crypto {
+          background: #000 url(/images/crypto-exchange.jpg) 0 0 no-repeat;
+          background-blend-mode: luminosity;
+          background-size: cover;
+          display: block;
+          overflow: hidden;
+        }
+        .exchange-card.forex {
+          background: #000 url("/images/foreign-exchange.jpg") 0 0 no-repeat;
+          background-blend-mode: luminosity;
+          background-size: cover;
+          display: block;
+          overflow: hidden;
+        }
+        .exchange-card.stocks {
+          background: #000 url("/images/stock-exchange.jpg") 0 0 no-repeat;
+          background-blend-mode: luminosity;
+          background-size: cover;
+          display: block;
+          overflow: hidden;
+        }
+      .exchange-description {
+        background-color:rgba(185, 185, 185, 0.75);
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+      }
+        .exchange-description .title {
+          display: inline-block;
+          color: #fff;
+          text-shadow: -1px -1px 1px #000, 0px 0px 1px #eee;
+          font-size: 30px;
+          line-height: 64px;
+        }
     </style>
+    <style is="custom-style" include="iron-flex iron-flex-alignment iron-flex-factors"></style>
 
-    <div class="card">
-      <div class="circle">1</div>
-      <h1>View One</h1>
-      <p>Ut labores minimum atomorum pro. Laudem tibique ut has.</p>
-      <p>Lorem ipsum dolor sit amet, per in nusquam nominavi periculis, sit elit oportere ea.Lorem ipsum dolor sit amet, per in nusquam nominavi periculis, sit elit oportere ea.Cu mei vide viris gloriatur, at populo eripuit sit.</p>
+    <ul id="breadcrumb">
+        <li><a href="#"><iron-icon icon="home"></iron-icon></a></li>
+        <li><a href="#"><span class="icon icon-beaker"> </span> Projects</a></li>
+        <li><a href="#"><span class="icon icon-double-angle-right"></span> Breadcrumb</a></li>
+        <li><a href="#"><span class="icon icon-rocket"> </span> Getting started</a></li>
+        <li><a href="#"><span class="icon icon-arrow-down"> </span> Download</a></li>
+      </ul>
+
+    <div class="layout horizontal">
+        <div>
+          <h1>Your guide and source for everything exchange related.</h1>
+          <p>
+            We strive to be your guidance and source through the ever growing markets.<br />
+            We provide you with the what &amp; how to try and help you increase your income and wealth.
+          </p>
+          <p><strong>Ready?</strong> Let's get started!</p>
+        </div>
+      </div>
+
+    <div class="layout horizontal center-justified">
+      <div>
+        <h1>Step <span class="circle">1</span></h1>
+        <p>Your interest</p>
+      </div>
     </div>
+
+    <hr class="sep" />
+
+    <div class="flex layout horizontal wrap end">
+      <div class="flex-4 exchange-card crypto">
+        <div class="exchange-description">
+          <span class="title" name="crypto" on-click="exchangeSelected">Crypto</span>
+          <p>Ut labores minimum atomorum pro. Laudem tibique ut has.</p>
+        </div>
+      </div>
+      <div class="flex-4 exchange-card forex">
+        <div class="exchange-description">
+          <span class="title" name="forex" on-click="exchangeSelected">Foreign</span>
+          <p>Ut labores minimum atomorum pro. Laudem tibique ut has.</p>
+        </div>
+      </div>
+      <div class="flex-4 exchange-card stocks">
+        <div class="exchange-description"> 
+          <span class="title" name="stocks" on-click="exchangeSelected">Stocks</span>
+          <p>Ut labores minimum atomorum pro. Laudem tibique ut has.</p>
+        </div>
+      </div>
+    </div>
+
+    <hr class="sep" />
+
+    <div class="layout horizontal center-justified">
+        <div>
+          <h1>Step <span class="circle">2</span></h1>
+          <p>Educate yourself</p>
+
+          <p>Before you jump into the world of {{exchangeType}}, read up on it!
+            Make sure you understand at least the basics so that you prevent major losses from the very beginning.
+          </p>
+          <p id="educate-crypto">
+            What exactly are crypto currencies?
+          </p>
+          <p id="educate-forex">
+            What is forex?
+          </p>
+          <p id="educate-stocks">
+            Isn't this for the old and rich?
+          </p>
+        </div>
+      </div>
+  
+      <hr class="sep" />
+
+    <div class="layout horizontal center-justified">
+      <div>
+        <h1>Step <span class="circle">3</span></h1>
+        <p>Choose your preferred broker</p>
+      </div>
+    </div>
+
+    <hr class="sep" />
+
+    <div class="layout horizontal center-justified">
+        <div>
+          <h1>Step <span class="circle">4</span></h1>
+          <p>Start trading!</p>
+        </div>
+      </div>
   </template>
 
   <script>
     class MainView extends Polymer.Element {
-      static get is() { return 'main-view'; }
-    }
+        static get is() { return 'main-view'; }
 
-    window.customElements.define(MainView.is,MainView);
+        static get properties() {
+          return {
+            exchangeType: {
+              type: String,
+              value: "forex",
+              reflectToAttribute: true
+            }
+          };
+        }
+
+        exchangeSelected() {
+          this.exchangeType = event.target.attributes.name.value;
+        }
+      }
+
+      window.customElements.define(MainView.is,MainView);
   </script>
 </dom-module>
+
+
+
